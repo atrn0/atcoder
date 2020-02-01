@@ -1,0 +1,40 @@
+import math
+import string
+import itertools
+import fractions
+import heapq
+import collections
+import re
+import array
+import bisect
+import sys
+import random
+import time
+inf = 10**9
+
+
+def main():
+    l, r = list(map(int, input().split()))
+    a = l % 2019
+    b = r % 2019
+
+    if a >= b:
+        print(0)
+        return
+
+    ans = 2018
+
+    if l-r >= 2018:
+        for i in range(a, b+1):
+            for j in range(i, b+1):
+                ans = min(ans, i*j % 2019)
+    else:
+        for i in range(a, b):
+            for j in range(i+1, b+1):
+                ans = min(ans, i*j % 2019)
+
+    print(ans)
+
+
+if __name__ == '__main__':
+    main()

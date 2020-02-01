@@ -1,0 +1,45 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <vector>
+#include <iomanip>
+#include <string>
+
+typedef long long int ll;
+typedef unsigned long long int ull;
+
+using namespace std;
+
+int main()
+{
+  ll N, B = 0, W = 0, i = 0, j;
+  string S;
+  cin >> N >> S;
+
+  while (S[i] != '#' && i < N - 1)
+  {
+    i++;
+  }
+  j = N - 1;
+  while (S[j] != '.' && j > 0)
+  {
+    j--;
+  }
+
+  for (ll k = i; k < j + 1; k++)
+  {
+    if (S[k] == '.' && B)
+    {
+      W++;
+    }
+    else if (S[k] == '#')
+    {
+      B++;
+    }
+  }
+
+  cout << min(B, W) << endl;
+
+  return 0;
+}
+
